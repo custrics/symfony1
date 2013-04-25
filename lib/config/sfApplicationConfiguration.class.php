@@ -154,6 +154,10 @@ abstract class sfApplicationConfiguration extends ProjectConfiguration
     {
       ob_start('ob_gzhandler');
     }
+    else 
+    {
+      ob_start();
+    }
 
     self::$coreLoaded = true;
   }

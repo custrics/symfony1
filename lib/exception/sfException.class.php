@@ -101,7 +101,11 @@ class sfException extends Exception
       }
 
       if (sfConfig::get('sf_compressed')) {
-          ob_start('ob_gzhandler');
+        ob_start('ob_gzhandler');
+      }
+      else 
+      {
+        ob_start();
       }
 
       header('HTTP/1.0 500 Internal Server Error');
