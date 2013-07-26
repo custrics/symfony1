@@ -227,7 +227,12 @@ class sfI18N
    */
   public function __($string, $args = array(), $catalogue = 'messages')
   {
-    return $this->getMessageFormat()->format($string, $args, $catalogue);
+  
+    $str = $this->getMessageFormat()->format($string, $args, $catalogue);
+    $str = mb_detect_encoding($str, 'UTF-8', true) ? $str : iconv('ISO-8859-1', 'UTF-8', $str);
+    return $str;
+          
+    //return $this->getMessageFormat()->format($string, $args, $catalogue);
   }
 
   /**
